@@ -15,7 +15,7 @@ class Agent(object):
     def test(self, testsheet):
         answer = []
         for x in testsheet:
-            if x >= self.lineval:
+            if round(x) >= self.lineval:
                 answer.append(True)
             else:
                 answer.append(False)
