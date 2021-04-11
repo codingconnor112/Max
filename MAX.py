@@ -8,6 +8,8 @@ print("made with python version "+sys.version)
 file = open(r"test.info", mode = "rb")
 testdict = pickle.load(file)
 file.close()
+global agentnum
+agentnum = int(input("agents for MAX"))
 class Agent(object):
     def __init__(self, lineval):
         self.lineval = lineval
@@ -26,11 +28,12 @@ class Agent(object):
         for x in us:
             usnums.append(x.score)
         if usnums.index(max(usnums)) == us.index(self):
-            a=copy.copy(self)
-            b=copy.copy(self)
-            a.lineval += random.randint(0, 5)
-            b.lineval += random.randint(-5, 0)
-            return list((a, b, self))
+            agentsnew = []
+            for x in range(0, agents-1):
+                agentsnew.append(copy.copy(self))
+                agentsnew[len(agentsnew)].lineval += random.randint(-1, 1)
+            agentsnew.append(self)
+            return agentsnew
         else:
             try:
                 return None
