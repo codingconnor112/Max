@@ -43,9 +43,8 @@ class Agent(object):
 iternum = int(input("iteration count"))
 testque = list(testdict.keys())
 testans = list(testdict.values())
-newagents=[Agent(random.randint(0, 100)), Agent(random.randint(0, 100)), Agent(random.randint(0, 100))]
+agents=[Agent(random.randint(0, 100)), Agent(random.randint(0, 100)), Agent(random.randint(0, 100))]
 for x in range(0, iternum):
-    agents=newagents
     for i in agents:
         right = 0
         testresults = i.test(testque)
@@ -56,7 +55,7 @@ for x in range(0, iternum):
         r = i.reproduce(agents)
         if r != None:
             print("iteration "+str(x+1)+" sucessful")
-            newagents = r
+            agents = r
 print("done")
 while True:
     hinputnum = int(input("number"))
