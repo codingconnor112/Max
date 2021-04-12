@@ -36,4 +36,3 @@ jobs:
       - name: AI
         run: |
               python rantest.py
-              python MAX.py
