@@ -2,7 +2,7 @@ import copy
 import pickle
 import random
 import sys
-print("MAX testing intelegence")
+print(" Max testing intellegence")
 print("a simple AI simulation")
 print("made with python version "+sys.version)
 file = open(r"test.info", mode = "rb")
