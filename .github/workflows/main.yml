@@ -33,3 +33,7 @@ jobs:
         run: |
           echo ready for resting
           ls
+      - name: AI
+        run: |
+              python rantest.py
+              python MAX.py
