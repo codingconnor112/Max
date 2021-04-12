@@ -6,7 +6,10 @@ print(" Max testing intellegence")
 print("a simple AI simulation")
 print("made with python version "+sys.version)
 file = open(r"test.info", mode = "rb")
-testdict = pickle.load(file)
+try:
+    testdict = pickle.load(file)
+except EOFError:
+    pass
 file.close()
 global agentnum
 agentnum = int(input("agents for MAX"))
