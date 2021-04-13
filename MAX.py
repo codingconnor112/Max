@@ -32,14 +32,14 @@ class Agent(object):
             usnums.append(x.score)
         if usnums.index(max(usnums)) == us.index(self):
             agentsnew = []
-            for x in range(0, agents-1):
+            for x in range(0, agentnum-1):
                 agentsnew.append(copy.copy(self))
-                agentsnew[len(agentsnew)].lineval += random.randint(-1, 1)
+                agentsnew[len(agentsnew-1)].lineval += random.randint(-1, 1)
             agentsnew.append(self)
             return agentsnew
         else:
             try:
-                return None
+                return []
             finally:
                 del self
     
@@ -47,6 +47,8 @@ iternum = int(input("iteration count"))
 testque = list(testdict.keys())
 testans = list(testdict.values())
 agents=[Agent(random.randint(0, 100)), Agent(random.randint(0, 100)), Agent(random.randint(0, 100))]
+for z in agents:
+    print(z.lineval)
 for x in range(0, iternum):
     for i in agents:
         right = 0
@@ -55,10 +57,13 @@ for x in range(0, iternum):
             if j == testans[testresults.index(j)]:
                 right += 1
         i.score = right
+    for y in agents:
         r = i.reproduce(agents)
-        if r != None:
+        if len(r) != 0:
             print("iteration "+str(x+1)+" sucessful")
             agents = r
+for nz in agents:
+    print(nz.lineval)
 print("done")
 while True:
     hinputnum = int(input("number"))
