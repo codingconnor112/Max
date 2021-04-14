@@ -29,7 +29,7 @@ class Agent(object):
         us=other
         usnums = []
         for x in us:
-            usnums.append(x.score)
+            usnums.append(x.score) 
         if usnums.index(max(usnums)) == us.index(self):
             agentsnew = []
             for x in range(0, agentnum-1):
